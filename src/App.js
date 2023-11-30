@@ -5,11 +5,13 @@ import { useEffect, useState } from 'react';
 
 function App() {
   const [getData, setData] = useState([]);
+  const [getData1, setData1] = useState([]);
   
   const callApi=async()=>{
     let data = await axios.get('https://jsonplaceholder.typicode.com/users')
     console.log(data.data)
     setData(data.data)
+    setData1(data.data)
   }
   useEffect(()=>{
     callApi()
@@ -19,7 +21,7 @@ const filterData =(e)=>{
   // e.preventDefault();
   console.log(e.target.value)
   let arr= []
-  getData.filter(data=>{
+  getData1.filter(data=>{
     if(data.name.toLowerCase().includes(e.target.value.toLowerCase())){
       arr.push(data)
     }
